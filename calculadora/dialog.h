@@ -1,10 +1,11 @@
 #ifndef DIALOG_H
 #define DIALOG_H
-#include <string>
+#include <string.h>
 #include <iostream>
 #include <QDialog>
 #include "calculador.h"
 #include <algorithm>
+#include "interatorinterface.h"
 
 namespace Ui {
 class Dialog;
@@ -64,7 +65,7 @@ private:
     bool erase = false;
     double aux = 0.0;
     calculador calculo = calculador();
-
+    InteratorInterface stringDeleter = InteratorInterface();
 };
 
 #endif // DIALOG_H

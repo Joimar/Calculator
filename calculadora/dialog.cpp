@@ -1,7 +1,12 @@
-/* Preciso conferir se o conteúdo inteiro do textedit tá indo para a string no botão de =. Após isso, tenho de eliminar os caractéres indesejáveis dessa string
+/*
+ * Preciso conferir se o conteúdo inteiro do textedit tá indo para a string no botão de =. Após isso, tenho de eliminar os caractéres indesejáveis dessa string
         https://stackoverflow.com/questions/20326356/how-to-remove-all-the-occurrences-of-a-char-in-c-string
+ * fazer as operações baseadas no último resultado quando não usar o recurso "limpar"
+ * Fazer as operações ignorarem as linhas anteriores
 
         o conteúdo tá indo certinho
+
+
 */
 
 #include "dialog.h"
@@ -26,11 +31,11 @@ Dialog::~Dialog()
 //0
 void Dialog::on_pushButton_10_clicked()
 {
-    if(erase)
-    {
-        ui->textEdit->clear();
-        erase = false;
-    }
+//    if(erase)
+//    {
+//        ui->textEdit->clear();
+//        erase = false;
+//    }
     ui->textEdit->insertPlainText("0");
 
 }
@@ -60,67 +65,67 @@ void Dialog::on_pushButton_2_clicked()
 //3
 void Dialog::on_pushButton_3_clicked()
 {
-    if(erase)
-    {
-        ui->textEdit->clear();
-        erase = false;
-    }
+//    if(erase)
+//    {
+//        ui->textEdit->clear();
+//        erase = false;
+//    }
      ui->textEdit->insertPlainText("3");
 }
 
 //4
 void Dialog::on_pushButton_4_clicked()
 {
-    if(erase)
-    {
-        ui->textEdit->clear();
-        erase = false;
-    }
-    ui->textEdit->insertPlainText("8");
+//    if(erase)
+//    {
+//        ui->textEdit->clear();
+//        erase = false;
+//    }
+    ui->textEdit->insertPlainText("4");
 
 }
 
 //5
 void Dialog::on_pushButton_5_clicked()
 {
-    if(erase)
-    {
-        ui->textEdit->clear();
-        erase = false;
-    }
+//    if(erase)
+//    {
+//        ui->textEdit->clear();
+//        erase = false;
+//    }
      ui->textEdit->insertPlainText("5");
 }
 
 //6
 void Dialog::on_pushButton_6_clicked()
 {
-    if(erase)
-    {
-        ui->textEdit->clear();
-        erase = false;
-    }
+//    if(erase)
+//    {
+//        ui->textEdit->clear();
+//        erase = false;
+//    }
     ui->textEdit->insertPlainText("6");
 }
 
 //7
 void Dialog::on_pushButton_7_clicked()
 {
-    if(erase)
-    {
-        ui->textEdit->clear();
-        erase = false;
-    }
+//    if(erase)
+//    {
+//        ui->textEdit->clear();
+//        erase = false;
+//    }
      ui->textEdit->insertPlainText("7");
 }
 
 //8
 void Dialog::on_pushButton_8_clicked()
 {
-    if(erase)
-    {
-        ui->textEdit->clear();
-        erase = false;
-    }
+//    if(erase)
+//    {
+//        ui->textEdit->clear();
+//        erase = false;
+//    }
     ui->textEdit->insertPlainText("8");
 
 }
@@ -128,11 +133,11 @@ void Dialog::on_pushButton_8_clicked()
 //9
 void Dialog::on_pushButton_9_clicked()
 {
-    if(erase)
-    {
-        ui->textEdit->clear();
-        erase = false;
-    }
+//    if(erase)
+//    {
+//        ui->textEdit->clear();
+//        erase = false;
+//    }
     ui->textEdit->insertPlainText("9");
 }
 
@@ -144,12 +149,9 @@ void Dialog::on_pushButton_13_clicked()
     multiFlag = false;
     divisaoFlag = false;
 
-    erase = true;
-   // ui->textEdit->insertPlainText(" + ");
-    ui->textEdit->append("\n");
+    ui->textEdit->insertPlainText(" + ");
 
 
-    aux = ui->textEdit->toPlainText().toDouble();
 
 }
 
@@ -161,9 +163,8 @@ void Dialog::on_pushButton_14_clicked()
     multiFlag = false;
     divisaoFlag = false;
 
-    erase = true;
+    ui->textEdit->insertPlainText(" - ");
 
-    aux = ui->textEdit->toPlainText().toDouble();
 }
 
 // multiplicação
@@ -174,9 +175,7 @@ void Dialog::on_pushButton_15_clicked()
     multiFlag = true;
     divisaoFlag = false;
 
-    erase = true;
-
-    aux = ui->textEdit->toPlainText().toDouble();
+    ui->textEdit->insertPlainText(" * ");
 }
 
 // divisão
@@ -187,32 +186,25 @@ void Dialog::on_pushButton_16_clicked()
     multiFlag = false;
     divisaoFlag = true;
 
-    erase = true;
-
-    aux = ui->textEdit->toPlainText().toDouble();
+     ui->textEdit->insertPlainText(" / ");
 }
 
 
 // =
 void Dialog::on_pushButton_17_clicked()
 {
-    double b = ui->textEdit->toPlainText().toDouble();
-    std::string f = std::string();
+    double a;
+    double b; //= ui->textEdit->toPlainText().toDouble();
 
-    std::string content = std::string();
-//    content = ui->textEdit->toPlainText().toStdString();
-//    content.erase(std::remove(content.begin(), content.end(), '+'), content.end());
+    stringDeleter.parse(ui->textEdit->toPlainText().toStdString(), a, b);
 
-//    b = std::stod(content);
 
-//    std::cout <<  "Valor de b: " << b << std::endl;
-    std::cout<< f << std::endl;
 
     if(somaFlag==true)
     {
-        b = calculo.soma(aux, b);
+        b = calculo.soma(a, b);
 
-
+        std::cout << "Soma: " << std::endl;
         ui->textEdit->insertPlainText("\n");
         ui->textEdit->append(QString::number(b));
 
@@ -220,7 +212,7 @@ void Dialog::on_pushButton_17_clicked()
 
     if(subFlag==true)
     {
-        b = calculo.sub(aux, b);
+        b = calculo.sub(a, b);
 
 
         ui->textEdit->insertPlainText("\n");
@@ -230,7 +222,7 @@ void Dialog::on_pushButton_17_clicked()
 
     if(divisaoFlag==true)
     {
-        b = calculo.divisao(aux, b);
+        b = calculo.divisao(a, b);
 
 
         ui->textEdit->insertPlainText("\n");
@@ -240,9 +232,9 @@ void Dialog::on_pushButton_17_clicked()
 
     if(multiFlag==true)
     {
-        b = calculo.multi(aux, b);
+        b = calculo.multi(a, b);
 
-
+        std::cout << "Multiplicaçao: "<< b << std::endl;
         ui->textEdit->insertPlainText("\n");
         ui->textEdit->append(QString::number(b));
 
@@ -255,8 +247,8 @@ void Dialog::on_pushButton_17_clicked()
 
     erase = true;
 
-    f = ui->textEdit->toPlainText().toStdString();
-     printf("%s\n", f.c_str());
+   // f = ui->textEdit->toPlainText().toStdString();
+
 }
 
 //Limpar
@@ -267,5 +259,15 @@ void Dialog::on_pushButton_12_clicked()
 
 void Dialog::on_pushButton_11_clicked()
 {
+    // testando a retirada de caracteres de string
+//    std::string teste = "Testando essa bagaça + / * - \nquebra de linha";
+
+//    teste.erase(std::remove(teste.begin(), teste.end(), '+'), teste.end());
+//    teste.erase(std::remove(teste.begin(), teste.end(), ' '), teste.end());
+//    stringDeleter.eraseSubStr(teste, "bagaça");
+//    std::cout << teste << std::endl;
+
+
      ui->textEdit->insertPlainText(".");
+
 }
