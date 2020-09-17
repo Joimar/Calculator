@@ -64,7 +64,6 @@ private:
     bool multiFlag = false;
     bool erase = false;
     double aux = 0.0;
-    std::string auxS;
     calculador calculo = calculador();
     InteratorInterface stringDeleter = InteratorInterface();
 };

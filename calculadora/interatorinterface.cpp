@@ -15,3 +15,80 @@ void InteratorInterface::eraseSubStr(std::string & mainStr, std::string toErase)
         mainStr.erase(pos, toErase.length());
     }
 }
+
+void InteratorInterface::parse(std::string content, double &a, double &b)
+{
+    a = 0.0;
+    b = 0.0;
+    std::string auxA;
+    std::string auxB;
+    std::size_t signal;
+
+    signal = content.find("+");
+    if(signal!=std::string::npos)
+    {
+        auxB = content.substr(signal);
+        eraseSubStr(auxB, "+");
+        eraseSubStr(auxB, " ");
+        b = std::stod(auxB); // Segundo termo definido
+
+        eraseSubStr(content, auxB);
+        eraseSubStr(content, " ");
+        eraseSubStr(content, "+");
+
+        auxA = content;
+        a = std::stod(auxA);
+
+    }
+
+    signal = content.find("-");
+    if(signal!=std::string::npos)
+    {
+        auxB = content.substr(signal);
+        eraseSubStr(auxB, "-");
+        eraseSubStr(auxB, " ");
+        b = std::stod(auxB); // Segundo termo definido
+
+        eraseSubStr(content, auxB);
+        eraseSubStr(content, " ");
+        eraseSubStr(content, "-");
+
+        auxA = content;
+        a = std::stod(auxA);
+
+    }
+
+    signal = content.find("*");
+    if(signal!=std::string::npos)
+    {
+        auxB = content.substr(signal);
+        eraseSubStr(auxB, "*");
+        eraseSubStr(auxB, " ");
+        b = std::stod(auxB); // Segundo termo definido
+
+        eraseSubStr(content, auxB);
+        eraseSubStr(content, " ");
+        eraseSubStr(content, "*");
+
+        auxA = content;
+        a = std::stod(auxA);
+
+    }
+
+    signal = content.find("/");
+    if(signal!=std::string::npos)
+    {
+        auxB = content.substr(signal);
+        eraseSubStr(auxB, "/");
+        eraseSubStr(auxB, " ");
+        b = std::stod(auxB); // Segundo termo definido
+
+        eraseSubStr(content, auxB);
+        eraseSubStr(content, " ");
+        eraseSubStr(content, "/");
+
+        auxA = content;
+        a = std::stod(auxA);
+
+    }
+}
