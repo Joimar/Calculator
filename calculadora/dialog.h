@@ -5,6 +5,7 @@
 #include <QDialog>
 #include "calculador.h"
 #include <algorithm>
+#include "interatorinterface.h"
 
 namespace Ui {
 class Dialog;
@@ -64,6 +65,7 @@ private:
     bool erase = false;
     double aux = 0.0;
     calculador calculo = calculador();
+    InteratorInterface Interator = InteratorInterface();
 
 };
 

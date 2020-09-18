@@ -95,5 +95,8 @@ void InteratorInterface::parse(std::string content, double &a, double &b)
 
     }
 
+    std::cout << "Valor de a: " << a << std::endl;
+    std::cout << "Valor de b: " << b << std::endl;
+
 
 }

@@ -29,12 +29,14 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     dialog.cpp \
-    calculador.cpp
+    calculador.cpp \
+    interatorinterface.cpp
 
 HEADERS += \
         mainwindow.h \
     dialog.h \
-    calculador.h
+    calculador.h \
+    interatorinterface.h
 
 FORMS += \
         mainwindow.ui \

@@ -26,11 +26,11 @@ Dialog::~Dialog()
 //0
 void Dialog::on_pushButton_10_clicked()
 {
-    if(erase)
-    {
-        ui->textEdit->clear();
-        erase = false;
-    }
+//    if(erase)
+//    {
+//        ui->textEdit->clear();
+//        erase = false;
+//    }
     ui->textEdit->insertPlainText("0");
 
 }
@@ -38,89 +38,89 @@ void Dialog::on_pushButton_10_clicked()
 //1
 void Dialog::on_pushButton_clicked()
 {
-    if(erase)
-    {
-        ui->textEdit->clear();
-        erase = false;
-    }
+//    if(erase)
+//    {
+//        ui->textEdit->clear();
+//        erase = false;
+//    }
      ui->textEdit->insertPlainText("1");
 }
 
 //2
 void Dialog::on_pushButton_2_clicked()
 {
-    if(erase)
-    {
-        ui->textEdit->clear();
-        erase = false;
-    }
+//    if(erase)
+//    {
+//        ui->textEdit->clear();
+//        erase = false;
+//    }
     ui->textEdit->insertPlainText("2");
 }
 
 //3
 void Dialog::on_pushButton_3_clicked()
 {
-    if(erase)
-    {
-        ui->textEdit->clear();
-        erase = false;
-    }
+//    if(erase)
+//    {
+//        ui->textEdit->clear();
+//        erase = false;
+//    }
      ui->textEdit->insertPlainText("3");
 }
 
 //4
 void Dialog::on_pushButton_4_clicked()
 {
-    if(erase)
-    {
-        ui->textEdit->clear();
-        erase = false;
-    }
-    ui->textEdit->insertPlainText("8");
+//    if(erase)
+//    {
+//        ui->textEdit->clear();
+//        erase = false;
+//    }
+    ui->textEdit->insertPlainText("4");
 
 }
 
 //5
 void Dialog::on_pushButton_5_clicked()
 {
-    if(erase)
-    {
-        ui->textEdit->clear();
-        erase = false;
-    }
+//    if(erase)
+//    {
+//        ui->textEdit->clear();
+//        erase = false;
+//    }
      ui->textEdit->insertPlainText("5");
 }
 
 //6
 void Dialog::on_pushButton_6_clicked()
 {
-    if(erase)
-    {
-        ui->textEdit->clear();
-        erase = false;
-    }
+//    if(erase)
+//    {
+//        ui->textEdit->clear();
+//        erase = false;
+//    }
     ui->textEdit->insertPlainText("6");
 }
 
 //7
 void Dialog::on_pushButton_7_clicked()
 {
-    if(erase)
-    {
-        ui->textEdit->clear();
-        erase = false;
-    }
+//    if(erase)
+//    {
+//        ui->textEdit->clear();
+//        erase = false;
+//    }
      ui->textEdit->insertPlainText("7");
 }
 
 //8
 void Dialog::on_pushButton_8_clicked()
 {
-    if(erase)
-    {
-        ui->textEdit->clear();
-        erase = false;
-    }
+//    if(erase)
+//    {
+//        ui->textEdit->clear();
+//        erase = false;
+//    }
     ui->textEdit->insertPlainText("8");
 
 }
@@ -128,11 +128,11 @@ void Dialog::on_pushButton_8_clicked()
 //9
 void Dialog::on_pushButton_9_clicked()
 {
-    if(erase)
-    {
-        ui->textEdit->clear();
-        erase = false;
-    }
+//    if(erase)
+//    {
+//        ui->textEdit->clear();
+//        erase = false;
+//    }
     ui->textEdit->insertPlainText("9");
 }
 
@@ -144,12 +144,12 @@ void Dialog::on_pushButton_13_clicked()
     multiFlag = false;
     divisaoFlag = false;
 
-    erase = true;
-   // ui->textEdit->insertPlainText(" + ");
-    ui->textEdit->append("\n");
+   // erase = true;
+    ui->textEdit->insertPlainText(" + ");
 
 
-    aux = ui->textEdit->toPlainText().toDouble();
+
+
 
 }
 
@@ -161,9 +161,9 @@ void Dialog::on_pushButton_14_clicked()
     multiFlag = false;
     divisaoFlag = false;
 
-    erase = true;
+   // erase = true;
+   ui->textEdit->insertPlainText(" - ");
 
-    aux = ui->textEdit->toPlainText().toDouble();
 }
 
 // multiplicação
@@ -174,9 +174,9 @@ void Dialog::on_pushButton_15_clicked()
     multiFlag = true;
     divisaoFlag = false;
 
-    erase = true;
+   //erase = true;
+    ui->textEdit->insertPlainText(" * ");
 
-    aux = ui->textEdit->toPlainText().toDouble();
 }
 
 // divisão
@@ -187,30 +187,24 @@ void Dialog::on_pushButton_16_clicked()
     multiFlag = false;
     divisaoFlag = true;
 
-    erase = true;
+   // erase = true;
+    ui->textEdit->insertPlainText(" / ");
 
-    aux = ui->textEdit->toPlainText().toDouble();
 }
 
 
 // =
 void Dialog::on_pushButton_17_clicked()
 {
-    double b = ui->textEdit->toPlainText().toDouble();
-    std::string f = std::string();
+   double a, b;
 
-    std::string content = std::string();
-//    content = ui->textEdit->toPlainText().toStdString();
-//    content.erase(std::remove(content.begin(), content.end(), '+'), content.end());
+   Interator.parse(ui->textEdit->toPlainText().toStdString(), a, b );
 
-//    b = std::stod(content);
 
-//    std::cout <<  "Valor de b: " << b << std::endl;
-    std::cout<< f << std::endl;
 
     if(somaFlag==true)
     {
-        b = calculo.soma(aux, b);
+        b = calculo.soma(a, b);
 
 
         ui->textEdit->insertPlainText("\n");
@@ -220,7 +214,7 @@ void Dialog::on_pushButton_17_clicked()
 
     if(subFlag==true)
     {
-        b = calculo.sub(aux, b);
+        b = calculo.sub(a, b);
 
 
         ui->textEdit->insertPlainText("\n");
@@ -230,7 +224,7 @@ void Dialog::on_pushButton_17_clicked()
 
     if(divisaoFlag==true)
     {
-        b = calculo.divisao(aux, b);
+        b = calculo.divisao(a, b);
 
 
         ui->textEdit->insertPlainText("\n");
@@ -240,7 +234,7 @@ void Dialog::on_pushButton_17_clicked()
 
     if(multiFlag==true)
     {
-        b = calculo.multi(aux, b);
+        b = calculo.multi(a, b);
 
 
         ui->textEdit->insertPlainText("\n");
@@ -255,8 +249,6 @@ void Dialog::on_pushButton_17_clicked()
 
     erase = true;
 
-    f = ui->textEdit->toPlainText().toStdString();
-     printf("%s\n", f.c_str());
 }
 
 //Limpar
@@ -265,6 +257,7 @@ void Dialog::on_pushButton_12_clicked()
     ui->textEdit->clear();
 }
 
+//ponto
 void Dialog::on_pushButton_11_clicked()
 {
      ui->textEdit->insertPlainText(".");
