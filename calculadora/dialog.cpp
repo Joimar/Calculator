@@ -43,22 +43,22 @@ void Dialog::on_pushButton_10_clicked()
 //1
 void Dialog::on_pushButton_clicked()
 {
-    if(erase)
-    {
-        ui->textEdit->clear();
-        erase = false;
-    }
+//    if(erase)
+//    {
+//        ui->textEdit->clear();
+//        erase = false;
+//    }
      ui->textEdit->insertPlainText("1");
 }
 
 //2
 void Dialog::on_pushButton_2_clicked()
 {
-    if(erase)
-    {
-        ui->textEdit->clear();
-        erase = false;
-    }
+//    if(erase)
+//    {
+//        ui->textEdit->clear();
+//        erase = false;
+//    }
     ui->textEdit->insertPlainText("2");
 }
 
@@ -204,7 +204,7 @@ void Dialog::on_pushButton_17_clicked()
     {
         b = calculo.soma(a, b);
 
-        std::cout << "Soma: " << std::endl;
+//        std::cout << "Soma: " << b<< std::endl;
         ui->textEdit->insertPlainText("\n");
         ui->textEdit->append(QString::number(b));
 

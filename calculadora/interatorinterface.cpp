@@ -1,5 +1,5 @@
 #include "interatorinterface.h"
-
+#include <iostream>
 InteratorInterface::InteratorInterface()
 {
 
@@ -32,9 +32,9 @@ void InteratorInterface::parse(std::string content, double &a, double &b)
         eraseSubStr(auxB, " ");
         b = std::stod(auxB); // Segundo termo definido
 
-        eraseSubStr(content, auxB);
-        eraseSubStr(content, " ");
-        eraseSubStr(content, "+");
+        eraseSubStr(content, " + "+auxB); // O problema tá aqui
+//        eraseSubStr(content, " ");
+//        eraseSubStr(content, "+");
 
         auxA = content;
         a = std::stod(auxA);
@@ -49,9 +49,9 @@ void InteratorInterface::parse(std::string content, double &a, double &b)
         eraseSubStr(auxB, " ");
         b = std::stod(auxB); // Segundo termo definido
 
-        eraseSubStr(content, auxB);
-        eraseSubStr(content, " ");
-        eraseSubStr(content, "-");
+        eraseSubStr(content, " - "+ auxB);
+//        eraseSubStr(content, " ");
+//        eraseSubStr(content, "-");
 
         auxA = content;
         a = std::stod(auxA);
@@ -66,9 +66,9 @@ void InteratorInterface::parse(std::string content, double &a, double &b)
         eraseSubStr(auxB, " ");
         b = std::stod(auxB); // Segundo termo definido
 
-        eraseSubStr(content, auxB);
-        eraseSubStr(content, " ");
-        eraseSubStr(content, "*");
+        eraseSubStr(content, " * "+auxB);
+//        eraseSubStr(content, " ");
+//        eraseSubStr(content, "*");
 
         auxA = content;
         a = std::stod(auxA);
@@ -83,12 +83,14 @@ void InteratorInterface::parse(std::string content, double &a, double &b)
         eraseSubStr(auxB, " ");
         b = std::stod(auxB); // Segundo termo definido
 
-        eraseSubStr(content, auxB);
-        eraseSubStr(content, " ");
-        eraseSubStr(content, "/");
+        eraseSubStr(content, " / "+ auxB);
+//        eraseSubStr(content, " ");
+//        eraseSubStr(content, "/");
 
         auxA = content;
         a = std::stod(auxA);
 
     }
+
+
 }
