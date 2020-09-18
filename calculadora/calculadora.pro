@@ -5,7 +5,6 @@
 #-------------------------------------------------
 
 QT       += core gui
-             testlib
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -30,14 +29,12 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     dialog.cpp \
-    calculador.cpp \
-    interatorinterface.cpp
+    calculador.cpp
 
 HEADERS += \
         mainwindow.h \
     dialog.h \
-    calculador.h \
-    interatorinterface.h
+    calculador.h
 
 FORMS += \
         mainwindow.ui \
