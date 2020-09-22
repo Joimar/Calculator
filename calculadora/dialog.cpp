@@ -1,7 +1,4 @@
-/* Preciso conferir se o conteúdo inteiro do textedit tá indo para a string no botão de =. Após isso, tenho de eliminar os caractéres indesejáveis dessa string
-        https://stackoverflow.com/questions/20326356/how-to-remove-all-the-occurrences-of-a-char-in-c-string
-
-        o conteúdo tá indo certinho
+/*Não mostra o resultado certo com operações envolvendo números decimais
 */
 
 #include "dialog.h"
@@ -260,5 +257,5 @@ void Dialog::on_pushButton_12_clicked()
 //ponto
 void Dialog::on_pushButton_11_clicked()
 {
-     ui->textEdit->insertPlainText(".");
+     ui->textEdit->insertPlainText(",");
 }
