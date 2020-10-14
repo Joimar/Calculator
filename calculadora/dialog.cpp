@@ -216,30 +216,42 @@ void Dialog::on_pushButton_17_clicked()
     if(subFlag==true)
     {
         b = calculo.sub(a, b);
+        QString str = QString::number(b, 'f', 6);
 
+        str.remove( QRegExp("0+$") ); // Remove any number of trailing 0's
+        str.remove( QRegExp("\\.$") ); // If the last character is just a '.' then remove it
+        str.replace('.',',');
 
         ui->textEdit->insertPlainText("\n");
-        ui->textEdit->append(QString::number(b));
+        ui->textEdit->append(str);
 
     }
 
     if(divisaoFlag==true)
     {
         b = calculo.divisao(a, b);
+        QString str = QString::number(b, 'f', 6);
 
+        str.remove( QRegExp("0+$") ); // Remove any number of trailing 0's
+        str.remove( QRegExp("\\.$") ); // If the last character is just a '.' then remove it
+        str.replace('.',',');
 
         ui->textEdit->insertPlainText("\n");
-        ui->textEdit->append(QString::number(b));
+        ui->textEdit->append(str);
 
     }
 
     if(multiFlag==true)
     {
         b = calculo.multi(a, b);
+        QString str = QString::number(b, 'f', 6);
 
+        str.remove( QRegExp("0+$") ); // Remove any number of trailing 0's
+        str.remove( QRegExp("\\.$") ); // If the last character is just a '.' then remove it
+        str.replace('.',',');
 
         ui->textEdit->insertPlainText("\n");
-        ui->textEdit->append(QString::number(b));
+        ui->textEdit->append(str);
 
     }
 
