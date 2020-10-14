@@ -274,22 +274,4 @@ void Dialog::on_pushButton_12_clicked()
 void Dialog::on_pushButton_11_clicked()
 {
      ui->textEdit->insertPlainText(",");
-     //std::cout << "Linha atual: " <<  cursor.blockNumber() << std::endl;
-     //cursor.select(QTextCursor::LineUnderCursor);
-
-     std::string teste;
-     std::string tester = "Testando substituição, será que vai dar certo?";
-//     cursor.movePosition(QTextCursor::Up);
-//     cursor.movePosition(QTextCursor::Up);
-//     cursor.select(QTextCursor::LineUnderCursor);
-//     cursor.removeSelectedText();
-
-     cursor.select(QTextCursor::LineUnderCursor);
-     teste = cursor.selectedText().toStdString();
-
-     std::cout << "Conteudo da linha atual: " << teste << std::endl;
-     std::cout << "Conteúdo de replace: " << tester << std::endl << std::endl;
-
-     std::replace(tester.begin(), tester.end(), '?','!');
-     std::cout << "Conteúdo de replace depois: " << tester << std::endl;
 }
