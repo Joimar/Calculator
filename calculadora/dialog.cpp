@@ -1,9 +1,11 @@
-/*Não mostra o resultado certo com operações envolvendo números decimais
+/*
+  Quando segue com os calculos e nao limpa a tela, ele pega todos os dados do TextEdit. To tentando usar um QTextCursor, mas talvez a solucao seja sofisticar mais o Parse
+
+  Os resultados tao vindo em pontos, preciso transforma-los em virgulas
 */
 
 #include "dialog.h"
 #include "ui_dialog.h"
-
 
 
 Dialog::Dialog(QWidget *parent) :
@@ -11,8 +13,10 @@ Dialog::Dialog(QWidget *parent) :
     ui(new Ui::Dialog)
 {
     ui->setupUi(this);
-     QTextCursor cursor(ui->textEdit->textCursor());
+     //QTextCursor cursor(ui->textEdit->textCursor());
      ui->textEdit->setReadOnly(true);
+
+     cursor = ui->textEdit->textCursor();
 }
 
 Dialog::~Dialog()
@@ -144,10 +148,6 @@ void Dialog::on_pushButton_13_clicked()
    // erase = true;
     ui->textEdit->insertPlainText(" + ");
 
-
-
-
-
 }
 
 // subtração
@@ -195,17 +195,21 @@ void Dialog::on_pushButton_17_clicked()
 {
    double a, b;
 
-   Interator.parse(ui->textEdit->toPlainText().toStdString(), a, b );
+   cursor.select(QTextCursor::LineUnderCursor);
 
-
+   Interator.parse(cursor.selectedText().toStdString(), a, b );
 
     if(somaFlag==true)
     {
         b = calculo.soma(a, b);
+        QString str = QString::number(b, 'f', 6);
 
+        str.remove( QRegExp("0+$") ); // Remove any number of trailing 0's
+        str.remove( QRegExp("\\.$") ); // If the last character is just a '.' then remove it
+        str.replace('.',',');
 
         ui->textEdit->insertPlainText("\n");
-        ui->textEdit->append(QString::number(b));
+        ui->textEdit->append(str);
 
     }
 
@@ -258,4 +262,22 @@ void Dialog::on_pushButton_12_clicked()
 void Dialog::on_pushButton_11_clicked()
 {
      ui->textEdit->insertPlainText(",");
+     //std::cout << "Linha atual: " <<  cursor.blockNumber() << std::endl;
+     //cursor.select(QTextCursor::LineUnderCursor);
+
+     std::string teste;
+     std::string tester = "Testando substituição, será que vai dar certo?";
+//     cursor.movePosition(QTextCursor::Up);
+//     cursor.movePosition(QTextCursor::Up);
+//     cursor.select(QTextCursor::LineUnderCursor);
+//     cursor.removeSelectedText();
+
+     cursor.select(QTextCursor::LineUnderCursor);
+     teste = cursor.selectedText().toStdString();
+
+     std::cout << "Conteudo da linha atual: " << teste << std::endl;
+     std::cout << "Conteúdo de replace: " << tester << std::endl << std::endl;
+
+     std::replace(tester.begin(), tester.end(), '?','!');
+     std::cout << "Conteúdo de replace depois: " << tester << std::endl;
 }

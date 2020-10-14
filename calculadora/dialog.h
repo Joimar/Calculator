@@ -6,6 +6,7 @@
 #include "calculador.h"
 #include <algorithm>
 #include "interatorinterface.h"
+#include<QTextEdit>
 
 namespace Ui {
 class Dialog;
@@ -66,6 +67,7 @@ private:
     double aux = 0.0;
     calculador calculo = calculador();
     InteratorInterface Interator = InteratorInterface();
+    QTextCursor cursor;
 
 };
 
