@@ -1,7 +1,5 @@
 /*
-  Quando segue com os calculos e nao limpa a tela, ele pega todos os dados do TextEdit. To tentando usar um QTextCursor, mas talvez a solucao seja sofisticar mais o Parse
-
-  Os resultados tao vindo em pontos, preciso transforma-los em virgulas
+  Onde estou limitando os digitos decimais?
 */
 
 #include "dialog.h"
@@ -27,11 +25,7 @@ Dialog::~Dialog()
 //0
 void Dialog::on_pushButton_10_clicked()
 {
-//    if(erase)
-//    {
-//        ui->textEdit->clear();
-//        erase = false;
-//    }
+
     ui->textEdit->insertPlainText("0");
 
 }
@@ -39,44 +33,28 @@ void Dialog::on_pushButton_10_clicked()
 //1
 void Dialog::on_pushButton_clicked()
 {
-//    if(erase)
-//    {
-//        ui->textEdit->clear();
-//        erase = false;
-//    }
+
      ui->textEdit->insertPlainText("1");
 }
 
 //2
 void Dialog::on_pushButton_2_clicked()
 {
-//    if(erase)
-//    {
-//        ui->textEdit->clear();
-//        erase = false;
-//    }
+
     ui->textEdit->insertPlainText("2");
 }
 
 //3
 void Dialog::on_pushButton_3_clicked()
 {
-//    if(erase)
-//    {
-//        ui->textEdit->clear();
-//        erase = false;
-//    }
+
      ui->textEdit->insertPlainText("3");
 }
 
 //4
 void Dialog::on_pushButton_4_clicked()
 {
-//    if(erase)
-//    {
-//        ui->textEdit->clear();
-//        erase = false;
-//    }
+
     ui->textEdit->insertPlainText("4");
 
 }
@@ -84,44 +62,28 @@ void Dialog::on_pushButton_4_clicked()
 //5
 void Dialog::on_pushButton_5_clicked()
 {
-//    if(erase)
-//    {
-//        ui->textEdit->clear();
-//        erase = false;
-//    }
+
      ui->textEdit->insertPlainText("5");
 }
 
 //6
 void Dialog::on_pushButton_6_clicked()
 {
-//    if(erase)
-//    {
-//        ui->textEdit->clear();
-//        erase = false;
-//    }
+
     ui->textEdit->insertPlainText("6");
 }
 
 //7
 void Dialog::on_pushButton_7_clicked()
 {
-//    if(erase)
-//    {
-//        ui->textEdit->clear();
-//        erase = false;
-//    }
+
      ui->textEdit->insertPlainText("7");
 }
 
 //8
 void Dialog::on_pushButton_8_clicked()
 {
-//    if(erase)
-//    {
-//        ui->textEdit->clear();
-//        erase = false;
-//    }
+
     ui->textEdit->insertPlainText("8");
 
 }
@@ -129,11 +91,7 @@ void Dialog::on_pushButton_8_clicked()
 //9
 void Dialog::on_pushButton_9_clicked()
 {
-//    if(erase)
-//    {
-//        ui->textEdit->clear();
-//        erase = false;
-//    }
+
     ui->textEdit->insertPlainText("9");
 }
 
